@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: persistentVolume
+metadata:
+  name: mongodb-pv
+  labels:
+    type: local
+spec:
+  storageClassName: hostpath
+capacity:
+  storage: 3Gi
+accessModes:
+- ReadWriteOnce
+- ReadOnlyMany
+hostpath:
+  path: /mnt/data
+---
+apiVersion: v1
+kind: persistentVolume
+metadata:
+  name: mysql-pv
+  labels:
+    type: local
+spec:
+  storageClassName: hostpath
+capacity:
+  storage: 2Gi
+accessModes:
+- ReadWriteOnce
+hostpath:
+  path: /mnt/data

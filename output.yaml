@@ -1,0 +1,15 @@
+Name: john doe
+Position: DevOps Engineer
+Location: England
+Age: '26'
+Experience:
+  gitHub: software engineer
+  google: technical engineer
+  linkedin: data analyst
+Languages:
+  markup:
+  - html
+  programming:
+  - python
+  - javascript
+  - golang
