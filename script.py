@@ -123,8 +123,8 @@ def read_and_modify_multiple_block_of_yaml_data(x, index, key, value):
     with open(x,'r') as f:
         data = yaml.safe_load_all(f)
         loaded_data = list(data)
-        modified_data = loaded_data[index][f'{key}'].append(f'{value}')
-        print(modified_data) 
+        loaded_data[index][f'{key}'].append(f'{value}')
+    print(loaded_data) 
     
     
 read_and_modify_multiple_block_of_yaml_data('output2.yaml', 0, 'accessModes', 'ReadOnlyMany')
@@ -138,8 +138,7 @@ def read_and_modify_and_write_multiple_block_of_yaml_data(x, index, key, value):
         loaded_data[index][f'{key}'].append(f'{value}')
     with open('output6.yaml', 'w') as file:
         yaml.dump_all(loaded_data,file, sort_keys=False)
-    print(loaded_data) 
-      
+    print(loaded_data)
 
 read_and_modify_and_write_multiple_block_of_yaml_data('output2.yaml', 0, 'accessModes', 'ReadOnlyMany') 
 
@@ -151,10 +150,4 @@ def convert_yaml_to_json(x):
     print('done!')
 convert_yaml_to_json('output.yaml')
 
-def convert_yaml_to_json(x):
-    with open(x, 'r') as f:
-        yaml_file = yaml.safe_load(f)
-    with open('output.json', 'w') as json_file:
-        json.dump(yaml_file, json_file, indent=3)
-    print('done!')
-convert_yaml_to_json('output.yaml')
+
