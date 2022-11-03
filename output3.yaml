@@ -1,6 +1,3 @@
-Name: john doe
-Position: DevOps Engineer
-Location: England
 Age: '26'
 Experience:
   gitHub: software engineer
@@ -13,3 +10,6 @@ Languages:
   - python
   - javascript
   - golang
+Location: England
+Name: john doe
+Position: DevOps Engineer
