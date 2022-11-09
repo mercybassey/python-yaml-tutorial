@@ -39,7 +39,7 @@ data2 = [
 # Create YAML for block of YAML data
 yaml_output = yaml.dump(data, sort_keys=False) # stores the yaml.dump(data) value in a variable "yaml_output"
 # Create YAML for multiple block of YAML data
-yaml_output2 = yaml.dump_all(data, sort_keys=False) # stores the yaml.dump(data) value in a variable "yaml_output"
+yaml_output2 = yaml.dump_all(data2, sort_keys=False) # stores the yaml.dump(data) value in a variable "yaml_output"
 print(yaml_output) 
 print(yaml_output2) 
 
