@@ -44,20 +44,20 @@ print(yaml_output)
 print(yaml_output2) 
 
 # Write one block of YAML data to a file
-def write_yaml_to_file(x):
+def write_yaml_to_file(x,y):
 # x here reprents the python object
-    with open('output.yaml', 'w',) as f :
+    with open(f'{y}.yaml', 'w',) as f :
         yaml.dump(x,f,sort_keys=False) 
 
-write_yaml_to_file(data)
+write_yaml_to_file(data, 'output')
 
 # Write multiple block of YAML to a file
-def write_yaml_to_file(x):
-    with open('output2.yaml', 'w',) as f :
+def write_yaml_to_file(x,y):
+    with open(f'{y}.yaml', 'w',) as f :
         yaml.dump_all(x,f,sort_keys=False)
     print('written to file successfully')
 
-write_yaml_to_file(data2)
+write_yaml_to_file(data2, 'output2')
 
 # Read one block of YAML data
 def read_one_block_of_yaml_data(x):
