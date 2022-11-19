@@ -10,7 +10,6 @@ capacity:
   storage: 3Gi
 accessModes:
 - ReadWriteOnce
-- ReadOnlyMany
 hostpath:
   path: /mnt/data
 ---
