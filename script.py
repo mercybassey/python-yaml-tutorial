@@ -38,9 +38,9 @@ data2 = [
 
 # Create YAML for block of YAML data
 yaml_output = yaml.dump(data, sort_keys=False) # stores the yaml.dump(data) value in a variable "yaml_output"
+print(yaml_output) 
 # Create YAML for multiple block of YAML data
 yaml_output2 = yaml.dump_all(data2, sort_keys=False) # stores the yaml.dump(data) value in a variable "yaml_output"
-print(yaml_output) 
 print(yaml_output2) 
 
 # Write one block of YAML data to a file
@@ -61,7 +61,7 @@ write_yaml_to_file(data2, 'output2')
 
 # Read one block of YAML data
 def read_one_block_of_yaml_data(filename):
-    with open(filename,'r') as f:
+    with open(f'{filename}.yaml','r') as f:
         output = yaml.safe_load(f)
     print(output) 
     
@@ -86,48 +86,48 @@ def read_multiple_block_of_yaml_data(filename):
 read_multiple_block_of_yaml_data('output2')
 
 # Read multiple block of YAML data and write to a file
-def read_multiple_block_of_yaml_data(filename):
+def read_multiple_block_of_yaml_data(filename,write_file):
     with open(f'{filename}.yaml','r') as f:
         data = yaml.safe_load_all(f)
         loaded_data = list(data)
-    with open('output4.yaml', 'w') as file:
+    with open(f'{write_file}.yaml', 'w') as file:
         yaml.dump_all(loaded_data,file, sort_keys=False)
     print('done!') 
 
-read_multiple_block_of_yaml_data('output2')
+read_multiple_block_of_yaml_data('output2','output4')
 
 # Modify one block of YAML data
-def read_modify_yaml_data(x, key, value):
-    with open(x, 'r') as f:
+def read_modify_yaml_data(filename, key, value):
+    with open(f'{filename}.yaml', 'r') as f:
         data = yaml.safe_load(f)
         data[f'{key}'] = f'{value}'
         print(data) 
     print('done!')
     
-read_modify_yaml_data('output.yaml', key='Age', value=30)
+read_modify_yaml_data('output', key='Age', value=30)
 
 # Modify one block of YAML data and read to a file
-def read_and_modify_one_block_of_yaml_data(x,key,value):
-    with open(x, 'r') as f:
+def read_and_modify_one_block_of_yaml_data(filename,write_file, key,value):
+    with open(f'{filename}.yaml', 'r') as f:
         data = yaml.safe_load(f)
         data[f'{key}'] = f'{value}'
         print(data)
-    with open('output5.yaml', 'w') as file:
+    with open(f'{write_file}.yaml', 'w') as file:
         yaml.dump(data,file,sort_keys=False)
     print('done!') 
     
-read_and_modify_one_block_of_yaml_data('output.yaml',key='Age', value=30 )
+read_and_modify_one_block_of_yaml_data('output', 'output5', key='Age', value=30)
 
 # Modify multiple block of YAML data
-def read_and_modify_multiple_block_of_yaml_data(x, index, key, value):
-    with open(x,'r') as f:
+def read_and_modify_multiple_block_of_yaml_data(filename, index, key, value):
+    with open(f'{filename}.yaml','r') as f:
         data = yaml.safe_load_all(f)
         loaded_data = list(data)
         loaded_data[index][f'{key}'].append(f'{value}')
     print(loaded_data) 
     
     
-read_and_modify_multiple_block_of_yaml_data('output2.yaml', 0, 'accessModes', 'ReadOnlyMany')
+read_and_modify_multiple_block_of_yaml_data('output2', 0, 'accessModes', 'ReadOnlyMany')
 
 # Modify multiple block of YAML data and write to a file
 
